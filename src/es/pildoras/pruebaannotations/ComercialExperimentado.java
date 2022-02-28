@@ -8,8 +8,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class ComercialExperimentado implements Empleados {
 
+	public ComercialExperimentado() {}
 
-	@Autowired
+	@Autowired //ojo que si hay solo un constructor como en este caso no es necesario usar autowired a partir de la version spring 4.3
 	public ComercialExperimentado(CreacionInformeFinanciero nuevoInforme) {
 		this.nuevoInforme = nuevoInforme;
 	}
