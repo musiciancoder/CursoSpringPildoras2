@@ -1,11 +1,18 @@
 package es.pildoras.pruebaannotations;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 //Esto es un Bean!!
 
-@Component("ComercialExperimentado") //este es el nombre del bean que no tiene por qué ser igual al nombre de la clase
+@Component
 public class ComercialExperimentado implements Empleados {
+
+
+	@Autowired
+	public ComercialExperimentado(CreacionInformeFinanciero nuevoInforme) {
+		this.nuevoInforme = nuevoInforme;
+	}
 
 	@Override
 	public String getTareas() {
@@ -16,7 +23,8 @@ public class ComercialExperimentado implements Empleados {
 	@Override
 	public String getInforme() {
 		// TODO Auto-generated method stub
-		return "Esto esun informe generado por el comercial";
+		//return "Esto es un informe generado por el comercial";
+		return nuevoInforme.getInformeFinanciero();
 	}
-
+	private CreacionInformeFinanciero nuevoInforme;
 }
