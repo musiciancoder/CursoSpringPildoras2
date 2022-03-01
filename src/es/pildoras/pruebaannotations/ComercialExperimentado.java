@@ -5,25 +5,30 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 //Esto es un Bean!!
 
 @Component
-@Scope("prototype")
 public class ComercialExperimentado implements Empleados {
+
+
+	//ejecucion de código despues de la creacion del Bean
+	@PostConstruct //solo se puede usar con singleton, son void y no reciben argumentos
+	public void ejecutaDespuesCreacion(){
+		System.out.println("Ejecuta tras creacion de Bean");
+	}
+
+	//ejecucion de código despues de apagado contenedor Spring
+	@PreDestroy //solo se puede usar con singleton
+	public void ejecutaAntesDestruccion(){
+		System.out.println("Ejecuta antes de destruccion");
+	}
 
 	public ComercialExperimentado() {}
 
-	//iny. de dependencias con autowired y constructor
-/*	@Autowired //ojo que si hay solo un constructor como en este caso no es necesario usar autowired a partir de la version spring 4.3
-	public ComercialExperimentado(CreacionInformeFinanciero nuevoInforme) {
-		this.nuevoInforme = nuevoInforme;
-	}*/
 
-	//iny. de dependencias con autowired y seter
-/*	@Autowired
-	public void setNuevoInforme(CreacionInformeFinanciero nuevoInforme) {
-		this.nuevoInforme = nuevoInforme;
-	}*/
 
 	@Override
 	public String getTareas() {
