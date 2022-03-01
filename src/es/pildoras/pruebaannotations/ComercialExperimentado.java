@@ -1,6 +1,7 @@
 package es.pildoras.pruebaannotations;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 //Esto es un Bean!!
@@ -37,5 +38,6 @@ public class ComercialExperimentado implements Empleados {
 
 	//iny de dependencias por campo de clase
 	@Autowired
+	@Qualifier("informeFinancieroTrim2") //bean id que debe utilizar, o sea informeFinancieroTrim2
 	private CreacionInformeFinanciero nuevoInforme;
 }
