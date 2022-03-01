@@ -13,21 +13,11 @@ public class UsoAnnotations2 {
         AnnotationConfigApplicationContext contexto = new AnnotationConfigApplicationContext(EmpleadosConfig.class);
 
         //pedir bean al contenedor
-        Empleados Antonio = contexto.getBean("comercialExperimentado", Empleados.class);
+        Empleados empleado=contexto.getBean("directorFinanciero", Empleados.class);
 
-        Empleados Lucia = contexto.getBean("comercialExperimentado",Empleados.class);
+        System.out.println(empleado.getTareas());
 
-        //¿apuntan al mismo objeto en memoria?
-
-        if(Antonio==Lucia){
-            System.out.println("Apuntan al mismo objeto en memoria");
-            System.out.println(Antonio + "\n" + Lucia);
-        }else {
-            System.out.println("No apuntan al mismo objeto en memoria");
-            System.out.println(Antonio + "\n" + Lucia);
-
-        }
-
+        System.out.println(empleado.getInforme());
         //cerrar el contexto
         contexto.close();
     }

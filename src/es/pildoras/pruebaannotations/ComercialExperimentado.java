@@ -17,13 +17,13 @@ public class ComercialExperimentado implements Empleados {
 	//ejecucion de código despues de la creacion del Bean
 	@PostConstruct //solo se puede usar con singleton, son void y no reciben argumentos
 	public void ejecutaDespuesCreacion(){
-		System.out.println("Ejecuta tras creacion de Bean");
+		//System.out.println("Ejecuta tras creacion de Bean");
 	}
 
 	//ejecucion de código despues de apagado contenedor Spring
 	@PreDestroy //solo se puede usar con singleton
 	public void ejecutaAntesDestruccion(){
-		System.out.println("Ejecuta antes de destruccion");
+	//	System.out.println("Ejecuta antes de destruccion");
 	}
 
 	public ComercialExperimentado() {}
