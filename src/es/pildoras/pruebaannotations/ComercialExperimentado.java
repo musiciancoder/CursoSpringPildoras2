@@ -10,10 +10,17 @@ public class ComercialExperimentado implements Empleados {
 
 	public ComercialExperimentado() {}
 
-	@Autowired //ojo que si hay solo un constructor como en este caso no es necesario usar autowired a partir de la version spring 4.3
+	//iny. de dependencias con autowired y constructor
+/*	@Autowired //ojo que si hay solo un constructor como en este caso no es necesario usar autowired a partir de la version spring 4.3
 	public ComercialExperimentado(CreacionInformeFinanciero nuevoInforme) {
 		this.nuevoInforme = nuevoInforme;
-	}
+	}*/
+
+	//iny. de dependencias con autowired y seter
+/*	@Autowired
+	public void setNuevoInforme(CreacionInformeFinanciero nuevoInforme) {
+		this.nuevoInforme = nuevoInforme;
+	}*/
 
 	@Override
 	public String getTareas() {
@@ -27,5 +34,8 @@ public class ComercialExperimentado implements Empleados {
 		//return "Esto es un informe generado por el comercial";
 		return nuevoInforme.getInformeFinanciero();
 	}
+
+	//iny de dependencias por campo de clase
+	@Autowired
 	private CreacionInformeFinanciero nuevoInforme;
 }
