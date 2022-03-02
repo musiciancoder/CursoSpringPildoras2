@@ -13,11 +13,18 @@ public class UsoAnnotations2 {
         AnnotationConfigApplicationContext contexto = new AnnotationConfigApplicationContext(EmpleadosConfig.class);
 
         //pedir bean al contenedor
-        Empleados empleado=contexto.getBean("directorFinanciero", Empleados.class);
+/*        Empleados empleado=contexto.getBean("directorFinanciero", Empleados.class);
 
         System.out.println(empleado.getTareas());
 
-        System.out.println(empleado.getInforme());
+        System.out.println(empleado.getInforme());*/
+
+        DirectorFinanciero empleado = contexto.getBean("directorFinanciero",DirectorFinanciero.class);
+
+        System.out.println("Email del director: " + empleado.getEmail());
+
+        System.out.println("Nombre de la empresa:" + empleado.getNombreEmpresa());
+
         //cerrar el contexto
         contexto.close();
     }
